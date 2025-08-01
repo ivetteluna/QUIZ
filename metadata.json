@@ -1,0 +1,6 @@
+{
+  "name": "Quiz Educativo Inteligente",
+  "description": "Una aplicación de quiz educativo que genera preguntas dinámicamente usando IA, calcula resultados y permite compartir el desempeño del estudiante. Diseñada para centros educativos, es personalizable con logo y número de contacto para reportes.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

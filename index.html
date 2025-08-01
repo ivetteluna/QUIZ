@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Educativo Inteligente</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /*
+      The following font-face rules are manually inlined to resolve a CORS issue
+      with the html-to-image library. The library cannot read the CSS rules from
+      an external stylesheet (like Google Fonts) due to browser security restrictions.
+      By inlining them, the library can correctly render the fonts in the generated image.
+    */
+    /* latin-ext */
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/nunito/v26/XRXV3I6Li01BKofIMeaB.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/nunito/v26/XRXV3I6Li01BKofIOOaB.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/nunito/v26/XRXW3I6Li01BKofA6sKUbuvISTs.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/nunito/v26/XRXW3I6Li01BKofA6sKUb-vI.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/nunito/v26/XRXW3I6Li01BKofAjsOUbuvISTs.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/nunito/v26/XRXW3I6Li01BKofAjsOUb-vI.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/nunito/v26/XRXW3I6Li01BKofAksCUbuvISTs.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/nunito/v26/XRXW3I6Li01BKofAksCUb-vI.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJbecnFH.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9cnFH.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9eg.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLEj6cnFH.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLEj6eg.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7cnFH.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7eg.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+    }
+    /* Custom scrollbar for a more modern look */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #a855f7;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #9333ea;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.12.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "html-to-image": "https://esm.sh/html-to-image@^1.11.11"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gradient-to-br from-sky-100 via-purple-100 to-fuchsia-200 text-gray-800">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
